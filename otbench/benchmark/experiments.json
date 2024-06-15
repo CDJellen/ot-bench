@@ -295,24 +295,6 @@
                 "valid_predictions": 2274
             }
         },
-        "PersistenceRegressionModel": {
-            "root_mean_square_error": {
-                "metric_value": 1.2090872526168823,
-                "valid_predictions": 2449
-            },
-            "coefficient_of_determination": {
-                "metric_value": 0.0,
-                "valid_predictions": 2449
-            },
-            "mean_absolute_error": {
-                "metric_value": 1.0162612199783325,
-                "valid_predictions": 2449
-            },
-            "mean_absolute_percentage_error": {
-                "metric_value": 0.0718001276254654,
-                "valid_predictions": 2449
-            }
-        },
         "MinuteClimatologyRegressionModel": {
             "root_mean_square_error": {
                 "metric_value": 0.5041238069534302,
@@ -422,24 +404,6 @@
             "mean_absolute_percentage_error": {
                 "metric_value": 0.044386366916080264,
                 "valid_predictions": 2641
-            }
-        },
-        "PersistenceRegressionModel": {
-            "root_mean_square_error": {
-                "metric_value": 1.2207112312316895,
-                "valid_predictions": 2816
-            },
-            "coefficient_of_determination": {
-                "metric_value": 0.0,
-                "valid_predictions": 2816
-            },
-            "mean_absolute_error": {
-                "metric_value": 1.029592514038086,
-                "valid_predictions": 2816
-            },
-            "mean_absolute_percentage_error": {
-                "metric_value": 0.07270682603120804,
-                "valid_predictions": 2816
             }
         },
         "MinuteClimatologyRegressionModel": {
@@ -569,24 +533,6 @@
             "mean_absolute_percentage_error": {
                 "metric_value": 0.03743351848080913,
                 "valid_predictions": 317350
-            }
-        },
-        "PersistenceRegressionModel": {
-            "root_mean_square_error": {
-                "metric_value": 1.2083104592404925,
-                "valid_predictions": 488306
-            },
-            "coefficient_of_determination": {
-                "metric_value": 9.647867875651636e-30,
-                "valid_predictions": 488306
-            },
-            "mean_absolute_error": {
-                "metric_value": 1.06362637810705,
-                "valid_predictions": 488306
-            },
-            "mean_absolute_percentage_error": {
-                "metric_value": 0.07730908066011898,
-                "valid_predictions": 488306
             }
         },
         "MinuteClimatologyRegressionModel": {
@@ -734,24 +680,6 @@
             "mean_absolute_percentage_error": {
                 "metric_value": 0.009207724213973945,
                 "valid_predictions": 421
-            }
-        },
-        "PersistenceRegressionModel": {
-            "root_mean_square_error": {
-                "metric_value": 0.757756119953163,
-                "valid_predictions": 4080
-            },
-            "coefficient_of_determination": {
-                "metric_value": 1.4793090160430023e-29,
-                "valid_predictions": 4080
-            },
-            "mean_absolute_error": {
-                "metric_value": 0.6822991233195909,
-                "valid_predictions": 4080
-            },
-            "mean_absolute_percentage_error": {
-                "metric_value": 0.04882870888175034,
-                "valid_predictions": 4080
             }
         },
         "MinuteClimatologyRegressionModel": {

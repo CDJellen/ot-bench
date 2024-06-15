@@ -44,7 +44,7 @@ def test_run_benchmarks_all_single_model():
     """Test running benchmarks."""
     got = run_benchmarks(benchmark_tasks=None,
                          verbose=True,
-                         benchmark_regression_models="PersistenceRegressionModel",
+                         benchmark_regression_models="ClimatologyRegressionModel",
                          benchmark_forecasting_models="PersistenceForecastingModel",
                          write_metrics=False,
                          include_pytorch_models=True)
@@ -57,7 +57,7 @@ def test_run_benchmarks_all_multiple_models():
     """Test running benchmarks."""
     got = run_benchmarks(benchmark_tasks=None,
                          verbose=True,
-                         benchmark_regression_models=["PersistenceRegressionModel"],
+                         benchmark_regression_models=["ClimatologyRegressionModel"],
                          benchmark_forecasting_models=["PersistenceForecastingModel"],
                          write_metrics=False,
                          include_pytorch_models=True)
