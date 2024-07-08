@@ -20,19 +20,39 @@ class LinearForecastingModel(BaseForecastingModel):
         # obtain the lagged values of the target variable
         X = X[[c for c in X.columns if c.startswith(self.target_name)]]
 
-        # interpolate X to fill in missing values
-        X = X.interpolate(method="time")
-
         # develop a prediction for each row in X
         preds = []
         for i in range(len(X)):
-            # fit a line to the lagged values
-            lagged_values = X.iloc[i, :].values
-            A = np.vstack([np.arange(len(lagged_values)), np.ones(len(lagged_values))]).T
-            m, b = np.linalg.lstsq(A, lagged_values, rcond=None)[0]
-
+            lagged_values = X.iloc[i, :]
+            data = lagged_values.to_numpy()
+            timestamps = np.arange(len(data))
+            
+            _, (m, b) = self._interpolate_and_fit(data=data, timestamps=timestamps)
+            
             # predict the next value at the forecast horizon
             pred = m * (len(lagged_values) + self.forecast_horizon) + b
             preds.append(pred)
 
         return np.array(preds)
+
+    def _interpolate_and_fit(self, data: 'np.ndarray', timestamps: 'np.ndarray'):
+        """Interpolates missing values and fits a line to non-null data points.
+
+        Args:
+            data (numpy.ndarray): The data array with potential missing values.
+            timestamps (numpy.ndarray): The corresponding timestamps for the data points.
+
+        Returns:
+            Tuple[numpy.ndarray, numpy.ndarray]: The interpolated data array and coefficients of the line of best fit.
+        """
+        valid_indices = ~np.isnan(data)  
+        valid_data = data[valid_indices]
+        valid_timestamps = timestamps[valid_indices]
+
+        if np.any(~valid_indices):  # Check if there are missing values
+            interpolated_data = np.interp(timestamps, valid_timestamps, valid_data)
+        else:
+            interpolated_data = data 
+        coefficients = np.polyfit(valid_timestamps, valid_data, 1)
+        
+        return interpolated_data, coefficients

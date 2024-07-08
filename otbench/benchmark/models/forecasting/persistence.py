@@ -16,7 +16,9 @@ class PersistenceForecastingModel(BaseForecastingModel):
         pass
 
     def predict(self, X: 'pd.DataFrame'):
-        persistence = X[self.target_name].values[0]
+        # predict the most recent (past) observed target for each entry in X
+        # X contains some number of lagged values of the target variable
+        # we will use the mean of these lagged values as our prediction
+        most_recent_observation = X[f"{self.target_name} (t-1)"].values
 
-        # develop a prediction for each row in X
-        return np.array([persistence for i in range(len(X))])
+        return np.array(most_recent_observation)

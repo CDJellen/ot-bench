@@ -9,7 +9,7 @@ from tests import TESTS_BENCHMARK_FP
 @pytest.mark.slow
 def test_run_benchmark_single():
     """Test running benchmarks."""
-    # save the current expiraments.json
+    # save the current experiments.json
     print(TESTS_BENCHMARK_FP)
     with open(TESTS_BENCHMARK_FP, "r") as fp:
         experiments = json.load(fp)
@@ -19,7 +19,7 @@ def test_run_benchmark_single():
                          metrics_fp=TESTS_BENCHMARK_FP,
                          include_pytorch_models=True,
                          n_epochs_override=10)
-    # restore the original expiraments.json
+    # restore the original experiments.json
     with open(TESTS_BENCHMARK_FP, "w") as fp:
         json.dump(experiments, fp, indent=4)
     assert isinstance(got, dict)
